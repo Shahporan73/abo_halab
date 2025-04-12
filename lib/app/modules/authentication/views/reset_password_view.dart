@@ -1,0 +1,68 @@
+import 'package:abo_halab_app/app/modules/authentication/views/sign_in_view.dart';
+import 'package:abo_halab_app/app/resource/utils/custom_size.dart';
+import 'package:abo_halab_app/app/resource/widgets/custom_Text_field.dart';
+import 'package:abo_halab_app/app/resource/widgets/custom_app_bar.dart';
+import 'package:abo_halab_app/app/resource/widgets/custom_text.dart';
+import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';
+
+import '../../../resource/app_colors/app_colors.dart';
+import '../../../resource/widgets/custom_button.dart';
+
+class ResetPasswordView extends GetView {
+  const ResetPasswordView({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: CustomAppBar(title: ''),
+      body: SingleChildScrollView(
+        padding: bodyPadding,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: Get.height / 20,
+            ),
+            CustomText(
+              title: 'Set a new password',
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: AppColors.violetDarkHover,
+            ),
+            heightBox5,
+            CustomText(
+              title:
+                  'Create a new password. Ensure it differs from previous ones for security.',
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+            heightBox20,
+            CustomTextField(
+              labelText: 'New password',
+              hint: '',
+              obscureText: true,
+            ),
+            heightBox10,
+            CustomTextField(
+              labelText: 'Confirm password',
+              hint: '',
+              obscureText: true,
+            ),
+            heightBox20,
+            CustomButton(
+              title: 'Reset',
+              onTap: () {
+                Get.rawSnackbar(message: 'Password reset successfully', backgroundColor: Colors.green);
+                Get.offAll(
+                  () => SignInView(),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

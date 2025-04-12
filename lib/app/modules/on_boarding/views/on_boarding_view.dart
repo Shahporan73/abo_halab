@@ -1,0 +1,166 @@
+import 'package:abo_halab_app/app/resource/app_images/app_images.dart';
+import 'package:abo_halab_app/app/resource/utils/custom_size.dart';
+import 'package:abo_halab_app/app/resource/widgets/custom_button.dart';
+import 'package:abo_halab_app/app/resource/widgets/custom_text.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../controllers/on_boarding_controller.dart';
+
+class OnBoardingView extends GetView<OnBoardingController> {
+  const OnBoardingView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final controller = Get.put(OnBoardingController());
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Stack(
+        children: [
+          PageView.builder(
+            controller: controller.pageController,
+            onPageChanged: (index) => controller.currentPage.value = index,
+            itemCount: 4,
+            itemBuilder: (context, index) {
+              String imagePath, title, description;
+
+              switch (index) {
+                case 1:
+                  imagePath = AppImages.onBoardingTwo;
+                  title = 'Discover, Shop, and Enjoy Seamless Shopping';
+                  description = 'Explore top-rated products, make secure payments, '
+                      'and enjoy fast delivery with every purchase.';
+                  break;
+                case 2:
+                  imagePath = AppImages.onBoardingThree;
+                  title = 'Shop Smarter, Faster, and Better Today';
+                  description = 'Discover amazing products, enjoy quick delivery, '
+                      'and shop with ease using our platform.';
+                  break;
+                case 3:
+                  imagePath = AppImages.onBoardingFour;
+                  title = 'Shop the Best Deals, Anytime, Anywhere';
+                  description = 'Browse top-quality products, get personalized recommendations, '
+                      'and shop effortlessly with quick delivery.';
+                  break;
+                default:
+                  imagePath = AppImages.onBoardingOne;
+                  title = 'Start Your Shopping Journey with Us!';
+                  description = 'Explore amazing products, exclusive deals, '
+                      'and a seamless shopping experience—all in one place.';
+              }
+
+              return Stack(
+                children: [
+                  Positioned.fill(
+                    child: Image.asset(
+                      imagePath,
+                      fit: BoxFit.cover,
+                      colorBlendMode: BlendMode.darken,
+                      filterQuality: FilterQuality.low,
+                    ),
+                  ),
+                  Positioned(
+                    top: 32,
+                    left: 16,
+                    right: 16,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomText(
+                          title: controller.currentPage.value == 0 ? "Welcome!"
+                              :'Let\'s Get Started',
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        CustomText(
+                          title: controller.currentPage.value == 0 ?
+                          'We\'re truly delighted to have you here and appreciate your presence!':
+                          'Sign up or log in to find out the best deals for you.',
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 24,
+                    left: 16,
+                    right: 16,
+                    child: Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CustomText(
+                            title: title,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            textAlign: TextAlign.center,
+                          ),
+                          heightBox5,
+                          CustomText(
+                            title: description,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            textAlign: TextAlign.center,
+                          ),
+                          heightBox10,
+                          SmoothPageIndicator(
+                            controller: controller.pageController,
+                            count: 4,
+                            effect: JumpingDotEffect(
+                              dotHeight: 8,
+                              dotWidth: 8,
+                              spacing: 6,
+                              activeDotColor: Colors.black,
+                              dotColor: Colors.black.withOpacity(0.3),
+                            ),
+                          ),
+                          heightBox14,
+                          CustomButton(
+                            title: index == 3 ? 'Get Started' : 'Next',
+                            onTap: () {
+                              if (index < 3) {
+                                controller.pageController.nextPage(
+                                  duration: const Duration(milliseconds: 400),
+                                  curve: Curves.easeInOut,
+                                );
+                              } else {
+                                controller.skip();
+                              }
+                            },
+                          ),
+                          heightBox10,
+                          InkWell(
+                            onTap: controller.skip,
+                            child: Center(
+                              child: CustomText(
+                                title: 'Skip',
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}

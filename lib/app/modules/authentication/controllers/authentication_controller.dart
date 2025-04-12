@@ -1,0 +1,6 @@
+import 'package:get/get.dart';
+
+class AuthenticationController extends GetxController {
+  var isChecked = false.obs;
+  var isRemember = false.obs;
+}

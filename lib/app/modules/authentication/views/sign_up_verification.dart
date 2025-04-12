@@ -1,0 +1,70 @@
+import 'package:abo_halab_app/app/modules/authentication/views/sign_in_view.dart';
+import 'package:abo_halab_app/app/resource/app_colors/App_Colors.dart';
+import 'package:abo_halab_app/app/resource/utils/custom_size.dart';
+import 'package:abo_halab_app/app/resource/widgets/custom_app_bar.dart';
+import 'package:abo_halab_app/app/resource/widgets/custom_button.dart';
+import 'package:abo_halab_app/app/resource/widgets/custom_otp_widget.dart';
+import 'package:abo_halab_app/app/resource/widgets/custom_text.dart';
+import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';
+
+class SignUpVerificationView extends GetView {
+  const SignUpVerificationView({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: CustomAppBar(title: 'Verification'),
+      body: Padding(
+        padding: bodyPadding,
+        child: Column(
+          children: [
+            CustomText(
+              title: 'Enter Verification Code',
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+            heightBox10,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: CustomText(
+                  title:
+                      'Please enter the 6-digit code sent to your phone number.',
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  textAlign: TextAlign.center),
+            ),
+
+            heightBox20,
+            CustomOtpWidget(numberOfFields: 6, borderColor: Colors.grey,),
+            heightBox20,
+            Text.rich(
+              TextSpan(children: [
+                TextSpan(
+                  text: 'Didn\'t receive the code?',
+                  style: TextStyle(color: Colors.black54, fontSize: 14),
+                ),
+                TextSpan(
+                  text: ' Resend',
+                  style: TextStyle(
+                      color: AppColors.mainColor, fontSize: 14, fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ]),
+            ),
+            SizedBox(
+              height: Get.height / 6,
+            ),
+            CustomButton(
+                title: 'Verify',
+                onTap: () {
+                  Get.to(()=>SignInView());
+                },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

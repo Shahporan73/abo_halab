@@ -1,0 +1,63 @@
+import 'package:abo_halab_app/app/modules/authentication/views/sign_in_view.dart';
+import 'package:abo_halab_app/app/modules/authentication/views/sign_up_view.dart';
+import 'package:abo_halab_app/app/resource/app_colors/app_colors.dart';
+import 'package:abo_halab_app/app/resource/app_images/app_images.dart';
+import 'package:abo_halab_app/app/resource/utils/custom_size.dart';
+import 'package:abo_halab_app/app/resource/widgets/custom_button.dart';
+import 'package:abo_halab_app/app/resource/widgets/custom_text.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../controllers/authentication_controller.dart';
+
+class AuthenticationView extends GetView<AuthenticationController> {
+  const AuthenticationView({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Center(
+              child: Image.asset(
+                AppImages.appLogo,
+                height: Get.height / 6,
+                width: Get.width / 3,
+              ),
+            ),
+            heightBox20,
+            CustomText(
+              title: 'Let’s get started!',
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+            heightBox5,
+            CustomText(
+              title: 'Login to Stay healthy and fit',
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+            heightBox20,
+            CustomButton(title: 'Login',
+                onTap: () {
+              Get.to(() => SignInView());
+            }),
+            heightBox10,
+            CustomButton(
+                title: 'Sign Up',
+                onTap: () {
+                  Get.to(() => SignUpView());
+                },
+                titleColor: AppColors.mainColor,
+                buttonColor: Colors.white,
+                border: Border.all(color: AppColors.mainColor),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -6,6 +6,7 @@ class AppImages {
   static const String onBoardingFour = 'assets/images/on_boarding_four.png';
   static const String accountVerify = 'assets/images/account_verify.png';
   static const String enableLocation = 'assets/images/enable_location.png';
+  static const String supportImage = 'assets/images/support_image.png';
 
   /// icons
   static const String facebook = 'assets/icons/facebook.png';
@@ -25,11 +26,12 @@ class AppImages {
   static const String profileInactive = 'assets/icons/profile_inactive.png';
 
 
-  static const String professionalSellerIcon = 'assets/icons/p_seller_icon.png';
+  static const String professionalSellerIcon = 'assets/icons/p_saller_icon.png';
   static const String whatsappIcon = 'assets/icons/whatsapp_icon.png';
   static const String chatIcon = 'assets/icons/chat_icon.png';
   static const String shareIcon = 'assets/icons/icon_share.png';
   static const String sendIcon = 'assets/icons/send_icon.png';
+  static const String editIcon = 'assets/icons/edit_icon.png';
 
 
 }

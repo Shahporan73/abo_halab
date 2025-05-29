@@ -17,6 +17,12 @@ abstract class Routes {
   static const PRODUCT_DETAILS = _Paths.PRODUCT_DETAILS;
   static const CATEGORY_FILTER_RESULT = _Paths.CATEGORY_FILTER_RESULT;
   static const STORY = _Paths.STORY;
+  static const VIEW_STORE = _Paths.VIEW_STORE;
+  static const FAVORITE = _Paths.FAVORITE;
+  static const RATING_REVIEWS = _Paths.RATING_REVIEWS;
+  static const SETTING = _Paths.SETTING;
+  static const YOUR_PRODUCT = _Paths.YOUR_PRODUCT;
+  static const PAYMENT_METHOD = _Paths.PAYMENT_METHOD;
 }
 
 abstract class _Paths {
@@ -35,4 +41,10 @@ abstract class _Paths {
   static const PRODUCT_DETAILS = '/product-details';
   static const CATEGORY_FILTER_RESULT = '/category-filter-result';
   static const STORY = '/story';
+  static const VIEW_STORE = '/view-store';
+  static const FAVORITE = '/favorite';
+  static const RATING_REVIEWS = '/rating-reviews';
+  static const SETTING = '/setting';
+  static const YOUR_PRODUCT = '/your-product';
+  static const PAYMENT_METHOD = '/payment-method';
 }

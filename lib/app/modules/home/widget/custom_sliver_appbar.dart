@@ -1,10 +1,14 @@
 import 'package:abo_halab_app/app/modules/home/widget/filter/filter_sheet_widget.dart';
 import 'package:abo_halab_app/app/resource/app_colors/App_Colors.dart';
+import 'package:abo_halab_app/app/resource/app_constant/cosnt_data.dart';
 import 'package:abo_halab_app/app/resource/widgets/custom_Text_field.dart';
+import 'package:abo_halab_app/app/resource/widgets/custom_network_image.dart';
 import 'package:abo_halab_app/app/resource/widgets/custom_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../views/search_view.dart';
 
 class CustomSliverAppbar extends StatelessWidget {
   const CustomSliverAppbar({super.key});
@@ -12,15 +16,15 @@ class CustomSliverAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      expandedHeight: Get.height / 7,
+      expandedHeight: Get.height / 6.5,
       backgroundColor: AppColors.mainColor,
       pinned: true,
-      floating: true, // Search bar hides on scroll
+      floating: true,
+
       snap: false,
       automaticallyImplyLeading: false,
-
       title: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Builder(
             builder: (context) {
@@ -28,7 +32,13 @@ class CustomSliverAppbar extends StatelessWidget {
                 onTap: () {
                   Scaffold.of(context).openDrawer();
                 },
-                child: Icon(Icons.menu, color: Colors.white),
+                child: ClipOval(
+                  child: CustomNetworkImage(
+                      imageUrl: profileImage,
+                      height: Get.height / 16,
+                      width: Get.width / 8
+                  ),
+                ),
               );
             },
           ),
@@ -83,7 +93,11 @@ class CustomSliverAppbar extends StatelessWidget {
                         Icons.search,
                         size: 18,
                       ),
+                      readOnly: true,
                       //  suffixIcon: const Icon(Icons.mic, color: AppColors.mainColor, size: 18,),
+                      onTap: () {
+                        Get.to(()=> SearchView(), transition: Transition.downToUp);
+                      },
                     ),
                   ),
                   const SizedBox(width: 10),

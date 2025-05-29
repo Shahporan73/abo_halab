@@ -106,6 +106,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 borderSide: BorderSide(color: widget.focusColor, width: widget.focusBorderWidth),
                 borderRadius: BorderRadius.circular(widget.focusBorderRadius),
               ),
+              // Always show the label
               label: widget.isLabel == true
                   ? CustomText(
                 title: widget.labelText ?? '',
@@ -119,7 +120,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     : BorderSide(width: widget.borderWidth, color: widget.borderColor),
                 borderRadius: BorderRadius.circular(widget.borderRadius),
               ),
-              hintText: widget.isLabel == true ? null : widget.hint,
+              hintText: widget.hint,
               hintStyle: GoogleFonts.urbanist(
                 color: widget.hintColor ?? Color(0xff595959),
                 fontWeight: FontWeight.w400,

@@ -1,23 +1,23 @@
 import 'package:get/get.dart';
 
 class SellController extends GetxController {
-  //TODO: Implement SellController
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  // Category
+  var selectedCategory = ''.obs;
+  void updateCategory(String category) {
+    selectedCategory.value = category;
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  // Property
+  var selectedProperty = ''.obs;
+  void updateProperty(String category) {
+    selectedProperty.value = category;
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  // select car type
+  var selectedCarType = ''.obs;
+  void updateCarType(String category) {
+    selectedCarType.value = category;
   }
 
-  void increment() => count.value++;
 }

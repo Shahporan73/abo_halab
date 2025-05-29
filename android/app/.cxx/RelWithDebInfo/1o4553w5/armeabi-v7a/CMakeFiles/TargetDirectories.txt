@@ -1,0 +1,2 @@
+C:/flutter project/abo_halab/android/app/.cxx/RelWithDebInfo/1o4553w5/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/flutter project/abo_halab/android/app/.cxx/RelWithDebInfo/1o4553w5/armeabi-v7a/CMakeFiles/rebuild_cache.dir

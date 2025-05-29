@@ -1,0 +1,82 @@
+import 'package:abo_halab_app/app/modules/sell/controllers/sell_controller.dart';
+import 'package:abo_halab_app/app/modules/sell/views/sell_view.dart';
+
+import '../../../resource/app_constant/import_list.dart';
+import '../../../resource/utils/custom_size.dart';
+import '../../../resource/widgets/custom_drop_down_widget.dart';
+import '../views/add_item_boat_view.dart';
+import '../views/add_item_car_view.dart';
+import '../views/add_item_job_view.dart';
+import '../views/add_item_motorcycle_view.dart';
+import '../views/properties_for_rent_view.dart';
+import '../views/properties_view.dart';
+
+class CategoryWidget extends StatelessWidget {
+  const CategoryWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final SellController categoryController = Get.find<SellController>();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        heightBox10,
+        Text(
+          'Category',
+          style: titleStyle,
+        ),
+        heightBox5,
+        // Observe the selected category
+        Obx(() {
+          return CustomDropDownWidget(
+            selectedValue: categoryController.selectedCategory.value,
+            items: [
+              'Bicycle',
+              'Books',
+              'Furniture',
+              'Electronic',
+              'Clothes',
+              'Properties',
+              'Rent',
+              'Car',
+              'Motorcycle',
+              'Boat',
+              'Job'
+            ],
+            hintText: 'Select Category',
+            onChanged: (value) {
+              categoryController.updateCategory(value!);
+              // If the selected category is 'Properties', 'Rent', or others that need navigation
+              if (value == 'Properties') {
+                Get.to(() => PropertiesView());
+              } else if (value == 'Rent') {
+                Get.to(() => PropertiesForRentView());
+              } else if (value == 'Car') {
+                Get.to(() => AddItemCarView());
+              } else if (value == 'Motorcycle') {
+                Get.to(() => AddItemMotorcycleView());
+              } else if (value == 'Boat') {
+                Get.to(() => AddItemBoatView());
+              } else if (value == 'Job') {
+                Get.to(() => AddItemJobView());
+              }
+              // For categories that use the shared form like 'Bicycle', 'Books', etc.
+              else if ([
+                'Bicycle',
+                'Books',
+                'Furniture',
+                'Electronic',
+                'Clothes'
+              ].contains(value)) {
+                // Navigate to the shared form (SellView)
+                Get.to(() => SellView());
+              }
+            },
+          );
+        }),
+      ],
+    );
+  }
+}
+
+

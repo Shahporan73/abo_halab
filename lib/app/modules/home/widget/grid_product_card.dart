@@ -18,6 +18,7 @@ class GridProductCard extends StatelessWidget {
   final String totalReviews;
   final double ratingCount;
   final bool isLarge;
+  final bool? isFavorite;
 
   GridProductCard({
     Key? key,
@@ -30,6 +31,7 @@ class GridProductCard extends StatelessWidget {
     this.isLarge = false,
     required this.discountPrice,
     required this.discountPercentage,
+    this.isFavorite = false,
   }) : super(key: key);
 
   @override
@@ -78,8 +80,8 @@ class GridProductCard extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
-                    Icons.favorite_border,
-                    color: Colors.black,
+                    isFavorite == true? Icons.favorite : Icons.favorite_border,
+                    color: isFavorite == true? Colors.red : Colors.black,
                   ),
                 ),
               ),

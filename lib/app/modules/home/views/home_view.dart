@@ -1,6 +1,6 @@
 import 'package:abo_halab_app/app/modules/home/widget/carouselslider_widget.dart';
 import 'package:abo_halab_app/app/modules/home/widget/story_widget.dart';
-import 'package:abo_halab_app/app/modules/home/widget/custom_drawer_widget.dart';
+import 'package:abo_halab_app/app/modules/home/widget/drawer/custom_drawer_widget.dart';
 import 'package:abo_halab_app/app/modules/home/widget/custom_row_card_widget.dart';
 import 'package:abo_halab_app/app/modules/home/widget/custom_see_all_widget.dart';
 import 'package:abo_halab_app/app/modules/home/widget/custom_sliver_appbar.dart';
@@ -29,6 +29,7 @@ class HomeView extends GetView<HomeController> {
       body: CustomScrollView(
         slivers: [
           CustomSliverAppbar(),
+
           SliverToBoxAdapter(
             child: Container(
               width: double.infinity,

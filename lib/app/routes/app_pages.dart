@@ -8,6 +8,8 @@ import '../modules/category_filter_result/bindings/category_filter_result_bindin
 import '../modules/category_filter_result/views/category_filter_result_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/favorite/bindings/favorite_binding.dart';
+import '../modules/favorite/views/favorite_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/messages/bindings/messages_binding.dart';
@@ -16,16 +18,26 @@ import '../modules/notification/bindings/notification_binding.dart';
 import '../modules/notification/views/notification_view.dart';
 import '../modules/on_boarding/bindings/on_boarding_binding.dart';
 import '../modules/on_boarding/views/on_boarding_view.dart';
+import '../modules/payment_method/bindings/payment_method_binding.dart';
+import '../modules/payment_method/views/payment_method_view.dart';
 import '../modules/product_details/bindings/product_details_binding.dart';
 import '../modules/product_details/views/product_details_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/rating_reviews/bindings/rating_reviews_binding.dart';
+import '../modules/rating_reviews/views/rating_reviews_view.dart';
 import '../modules/sell/bindings/sell_binding.dart';
 import '../modules/sell/views/sell_view.dart';
+import '../modules/setting/bindings/setting_binding.dart';
+import '../modules/setting/views/setting_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 import '../modules/story/bindings/story_binding.dart';
 import '../modules/story/views/story_view.dart';
+import '../modules/view_store/bindings/view_store_binding.dart';
+import '../modules/view_store/views/view_store_view.dart';
+import '../modules/your_product/bindings/your_product_binding.dart';
+import '../modules/your_product/views/your_product_view.dart';
 
 part 'app_routes.dart';
 
@@ -99,6 +111,36 @@ class AppPages {
       name: _Paths.STORY,
       page: () => const StoryView(),
       binding: StoryBinding(),
+    ),
+    GetPage(
+      name: _Paths.VIEW_STORE,
+      page: () => const ViewStoreView(),
+      binding: ViewStoreBinding(),
+    ),
+    GetPage(
+      name: _Paths.FAVORITE,
+      page: () => const FavoriteView(),
+      binding: FavoriteBinding(),
+    ),
+    GetPage(
+      name: _Paths.RATING_REVIEWS,
+      page: () => const RatingReviewsView(),
+      binding: RatingReviewsBinding(),
+    ),
+    GetPage(
+      name: _Paths.SETTING,
+      page: () => const SettingView(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: _Paths.YOUR_PRODUCT,
+      page: () => const YourProductView(),
+      binding: YourProductBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAYMENT_METHOD,
+      page: () => const PaymentMethodView(),
+      binding: PaymentMethodBinding(),
     ),
   ];
 }

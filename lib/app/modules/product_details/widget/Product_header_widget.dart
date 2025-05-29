@@ -146,7 +146,7 @@ class ProductHeaderWidget extends StatelessWidget {
           ),
           heightBox5,
           // CustomText(title: details),
-          SeeMoreTextWidget(
+          CustomSeeMoreTextWidget(
               text: details,
             maxLines: 8,
           )

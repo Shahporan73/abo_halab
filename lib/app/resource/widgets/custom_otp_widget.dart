@@ -22,7 +22,7 @@ class CustomOtpWidget extends StatelessWidget {
     this.borderRadius,
     this.fieldHeight,
     this.fieldWidth,
-    this.numberOfFields = 4, // Default 4 OTP fields
+    this.numberOfFields = 4,
   });
 
   @override
@@ -30,8 +30,10 @@ class CustomOtpWidget extends StatelessWidget {
     final inputDecoration = InputDecoration(
       hintText: hintText ?? "0",
       hintStyle: TextStyle(color: const Color(0xFF757575)),
-      border: authOutlineInputBorder(borderColor ?? Colors.white, borderRadius ?? 12.0),
-      enabledBorder: authOutlineInputBorder(borderColor ?? Colors.white, borderRadius ?? 12.0),
+      border: authOutlineInputBorder(
+          borderColor ?? Colors.white, borderRadius ?? 12.0),
+      enabledBorder: authOutlineInputBorder(
+          borderColor ?? Colors.white, borderRadius ?? 12.0),
       focusedBorder: authOutlineInputBorder(
         focusedBorderColor ?? const Color(0xFFFF7643),
         borderRadius ?? 12.0,
@@ -46,7 +48,8 @@ class CustomOtpWidget extends StatelessWidget {
             children: List.generate(numberOfFields!, (index) {
               return Expanded(
                 child: Padding(
-                  padding: EdgeInsets.only(right: index != numberOfFields! - 1 ? 5.0 : 0),
+                  padding: EdgeInsets.only(
+                      right: index != numberOfFields! - 1 ? 5.0 : 0),
                   child: SizedBox(
                     height: fieldHeight ?? 64,
                     width: fieldWidth ?? 64,
@@ -63,7 +66,8 @@ class CustomOtpWidget extends StatelessWidget {
                         LengthLimitingTextInputFormatter(1),
                         FilteringTextInputFormatter.digitsOnly,
                       ],
-                      style: textStyle ?? Theme.of(context).textTheme.titleLarge,
+                      style:
+                          textStyle ?? Theme.of(context).textTheme.titleLarge,
                       textAlign: TextAlign.center,
                       decoration: inputDecoration,
                     ),

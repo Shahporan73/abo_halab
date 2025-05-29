@@ -34,6 +34,12 @@ EdgeInsetsGeometry bodyPadding = EdgeInsets.only(
     bottom: 0
 );
 
+final TextStyle titleStyle = const TextStyle(
+  fontSize: 14,
+  fontWeight: FontWeight.w500,
+  color: CupertinoColors.black
+);
+
 
 
 

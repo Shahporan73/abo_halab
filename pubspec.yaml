@@ -54,6 +54,8 @@ dependencies:
   url_launcher: ^6.3.1
   video_player: ^2.8.1
   share_plus: ^7.0.0
+  dotted_border: ^2.1.0
+  file_picker: ^10.1.2
 
 dev_dependencies:
   flutter_test:

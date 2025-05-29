@@ -13,6 +13,8 @@ import 'package:abo_halab_app/app/resource/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import '../../home/views/search_view.dart';
+import '../../home/widget/story_widget.dart';
 import '../controllers/categories_controller.dart';
 
 class CategoriesView extends GetView<CategoriesController> {
@@ -51,12 +53,22 @@ class CategoriesView extends GetView<CategoriesController> {
                     isLabel: false,
                     filled: true,
                     fillColor: Colors.white,
+                    readOnly: true,
                     prefixIcon: const Icon(
                       Icons.search,
                       size: 18,
                     ),
+                    onTap: () {
+                      Get.to(()=> SearchView(), transition: Transition.downToUp);
+                    },
                   ),
                 ),
+
+
+
+
+
+
                 const SizedBox(width: 10),
                 Container(
                   padding: EdgeInsets.all(8),
